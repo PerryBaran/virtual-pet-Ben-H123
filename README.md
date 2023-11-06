@@ -1,0 +1,1 @@
+This is my first attempt at creating a virtual pet as part of the Object-Oriented Programming section of the course.
