@@ -39,7 +39,29 @@ describe('constructor', () => {
 describe('constructor', () => {
     it('decreases fitness by 3', () => {
         const pet = new Pet('Fido');
+        pet.fitness = 10;
         pet.growUp();
         expect(pet.fitness).toEqual(7);
+    });
+});
+
+describe('walk', () => {
+    it('increases fitness by 4 to a maximum of 10', () => {
+        const pet = new Pet('Fido');
+
+        pet.fitness = 8;
+        pet.walk();
+
+        expect(pet.fitness).toEqual(10);
+    });
+});
+
+describe('feed', () => {
+    it('decreases hunger level by 3 to a minimum of 0', () => {
+        const pet = new Pet('Fido');
+
+        pet.hunger = 5;
+        pet.feed();
+        expect(pet.hunger).toEqual(2);
     });
 });
