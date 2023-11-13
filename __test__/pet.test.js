@@ -65,3 +65,52 @@ describe('feed', () => {
         expect(pet.hunger).toEqual(2);
     });
 });
+
+describe('checkup', () => {
+    it('tells you if your pet needs walking or not', () => {
+        const pet = new Pet('Fido');
+        pet.fitness = 2;
+        expect(pet.checkup()).toBe("I need a walk");
+    });
+
+    it('tells you if your pet is hungry or not', () => {
+        const pet = new Pet('Fido');
+        pet.hunger = 6;
+        expect(pet.checkup()).toBe("I am hungry");
+    });
+
+    it('tells you if your pet is hungry and needs a walk', () => {
+        const pet = new Pet('Fido');
+        pet.hunger = 6;
+        pet.fitness = 2;
+        expect(pet.checkup()).toBe("I am hungry AND I need a walk");
+    });
+
+    it('tells you if your pet is hungry and needs a walk', () => {
+        const pet = new Pet('Fido');
+        pet.hunger = 3;
+        pet.fitness = 6;
+        expect(pet.checkup()).toBe("I feel great");
+    });
+});
+
+    describe('death', () => {
+    it('tells you if your pet is alive - fitness', () => {
+        const pet = new Pet('Fido');
+        pet.fitness = 0;
+        expect(pet.isAlive).toBe(false);
+    });
+
+    it('tells you if your pet is alive - hunger', () => {
+        const pet = new Pet('Fido');
+        pet.hunger = 12;
+        expect(pet.isAlive).toBe(false);
+    });
+
+    it('tells you if your pet is alive - age', () => {
+        const pet = new Pet('Fido');
+        pet.age = 31;
+        expect(pet.isAlive).toBe(false);
+    });
+});
+
