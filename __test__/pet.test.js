@@ -22,7 +22,7 @@ describe('constructor', () => {
 
 describe('constructor', () => {
 
-    it('throws an error is the pet is not alive', () => {
+    it('throws an error if the pet is not alive', () => {
         const pet = new Pet('Fido');
 
         pet.age = 30;
@@ -121,7 +121,7 @@ describe('checkup', () => {
     });
 });
 
-    describe('death', () => {
+describe('death', () => {
     it('tells you if your pet is alive - fitness', () => {
         const pet = new Pet('Fido');
         pet.fitness = 0;
@@ -138,6 +138,17 @@ describe('checkup', () => {
         const pet = new Pet('Fido');
         pet.age = 31;
         expect(pet.isAlive).toBe(false);
+    });
+
+    describe('having a baby', () => {
+        it('has a baby', () => {
+            const parent = new Pet("Fido");
+            parent.haveBaby('Amelia');
+
+            expect(parent.children[0].name).toEqual("Amelia");
+
+        });
+
     });
 
 });
